@@ -25,21 +25,25 @@ ciudad_suc10 = ""
 
 # Armo el bucle para pedir las 10 sucursales
 for suc in range(1, 11):
-    print(f"Ingrese los datos de la filial {suc}")
+    print("Ingrese los datos del hotel",suc)
     
     # Pido datos requeridos
     ciudad = input("Ingrese el nombre de la ciudad: ")
-    cap_huesped_suc = int(input("Ingrese la capacidad total en huéspedes: "))
+    capacidad_huesped = int(input("Ingrese la capacidad total de huespedes: "))
     cant_habitaciones = int(input("Ingrese la cantidad de habitaciones: "))
-    huesped_mes = int(input("Ingrese la cantidad de huéspedes en el mes: "))
+    huesped_mensual = int(input("Ingrese la cantidad de huespedes en el mes: "))
     
     # Acumulo la capacidad total del hotel
-    cant_total_huesped += cap_huesped_suc
+    cant_total_huesped += capacidad_huesped
     
     # Calculo el porcentaje de ocupación con 2 decimales
-    # Busque en internet como hacer para redondear a 2 decimales el porcentaje
-    if cap_huesped_suc > 0:
-        porc_ocup = (huesped_mes / cap_huesped_suc) * 100
+    # Busque en internet el flag round para redondear a 2 decimales el porcentaje (queda mas lindo)
+    if capacidad_huesped > 0:
+
+        # Entiendo que pide el % de ocupacion mensual ya que pide ingresar como dato la cantidad de huespedes en un mes (tomo 30 dias)
+        # por eso * 30 la capacidad de huespedes de cada hotel
+        capacidad_huesped *= 30
+        porc_ocup = round((huesped_mensual / capacidad_huesped) * 100,2)
     else:
         porc_ocup = 0  # Evitar división por cero
     
@@ -83,14 +87,14 @@ for suc in range(1, 11):
 # Muestro los resultados finales
 print("La cantidad total de huéspedes de la cadena de hoteles es: ",cant_total_huesped)
 print("El nombre de la ciudad con mayor cantidad de habitaciones es: ",ciudad_max)
-print("Porcentaje de ocupación por filial:")
-print(f"{ciudad_suc1}: {porc_ocup_suc1}%")
-print(f"{ciudad_suc2}: {porc_ocup_suc2}%")
-print(f"{ciudad_suc3}: {porc_ocup_suc3}%")
-print(f"{ciudad_suc4}: {porc_ocup_suc4}%")
-print(f"{ciudad_suc5}: {porc_ocup_suc5}%")
-print(f"{ciudad_suc6}: {porc_ocup_suc6}%")
-print(f"{ciudad_suc7}: {porc_ocup_suc7}%")
-print(f"{ciudad_suc8}: {porc_ocup_suc8}%")
-print(f"{ciudad_suc9}: {porc_ocup_suc9}%")
-print(f"{ciudad_suc10}: {porc_ocup_suc10}%")
+print("Porcentaje de ocupación por Hotel es: ")
+print(ciudad_suc1,": ",porc_ocup_suc1,"%")
+print(ciudad_suc2,": ",porc_ocup_suc2,"%")
+print(ciudad_suc3,": ",porc_ocup_suc3,"%")
+print(ciudad_suc4,": ",porc_ocup_suc4,"%")
+print(ciudad_suc5,": ",porc_ocup_suc5,"%")
+print(ciudad_suc6,": ",porc_ocup_suc6,"%")
+print(ciudad_suc7,": ",porc_ocup_suc7,"%")
+print(ciudad_suc8,": ",porc_ocup_suc8,"%")
+print(ciudad_suc9,": ",porc_ocup_suc9,"%")
+print(ciudad_suc10,": ",porc_ocup_suc10,"%")
